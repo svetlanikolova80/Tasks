@@ -1,0 +1,105 @@
+<html>
+   <head>
+	<title>Ext grid</title>
+	<link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.2.0-gpl/resources/css/ext-all-gray.css">
+	<script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.2.0-gpl/ext-all.js"></script>
+   </head>
+<body>
+
+<script>
+
+Ext.application({
+    name: 'Fiddle',
+
+    launch: function () {
+
+        Ext.define('MyModel', {
+            extend: 'Ext.data.Model',
+            fields: ['name', 'email', 'phone']
+        });
+
+        Ext.create('Ext.data.Store', {
+            storeId: 'myStore',
+            model: 'MyModel',
+            data: [{
+                name: 'Lisa',
+                email: 'lisa@simpsons.com',
+                phone: '555-111-1224'
+            }, {
+                name: 'Bart',
+                email: 'bart@simpsons.com',
+                phone: '555-222-1234'
+            }, {
+                name: 'Homer',
+                email: 'homer@simpsons.com',
+                phone: '555-222-1244'
+            }, {
+                name: 'Marge',
+                email: 'marge@simpsons.com',
+                phone: '555-222-1254'
+            }]
+        });
+
+        Ext.create('Ext.grid.Panel', {
+            title: 'My Data',
+            store: 'myStore',
+            columns: [{
+                header: 'Name',
+                dataIndex: 'name',
+                flex: 1,
+                editor: 'textfield'
+            }, {
+                header: 'Email',
+                dataIndex: 'email',
+                flex: 1,
+                editor: {
+                    completeOnEnter: false,
+
+                    // If the editor config contains a field property, then
+                    // the editor config is used to create the Ext.grid.CellEditor
+                    // and the field property is used to create the editing input field.
+                    field: {
+                        xtype: 'textfield',
+                        allowBlank: false
+                    }
+                }
+            }, {
+                header: 'Phone',
+                flex: 1,
+                dataIndex: 'phone'
+            }],
+            selModel: 'cellmodel',
+            plugins: {
+                ptype: 'cellediting',
+                clicksToEdit: 1
+            },
+            renderTo: Ext.getBody(),
+            tools: [{
+                type: 'plus',
+                handler: function () {
+                    var grid = this.up('grid'),
+                        store = grid.getStore(),
+                        rec = Ext.create('MyModel', {
+                            name: '',
+                            email: '',
+                            phone:'1234567890'
+                        }),
+                        context;
+
+                    store.add(rec);
+                    //Get Ext.grid.CellContext of first cell using getColumns()[0]
+                    context = grid.getView().getPosition(rec, grid.getColumns()[0])
+
+                    //Start editing in first cell
+                    grid.setActionableMode(true, context);
+                }
+            }]
+        });
+    }
+});
+
+
+</script>
+</body>
+
+</html>
