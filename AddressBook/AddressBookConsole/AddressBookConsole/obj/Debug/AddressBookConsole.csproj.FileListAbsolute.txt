@@ -1,0 +1,7 @@
+C:\Users\svetla\Desktop\AddressBook\AddressBookConsole\AddressBookConsole\bin\Debug\AddressBookConsole.exe.config
+C:\Users\svetla\Desktop\AddressBook\AddressBookConsole\AddressBookConsole\bin\Debug\AddressBookConsole.exe
+C:\Users\svetla\Desktop\AddressBook\AddressBookConsole\AddressBookConsole\bin\Debug\AddressBookConsole.pdb
+C:\Users\svetla\Desktop\AddressBook\AddressBookConsole\AddressBookConsole\obj\Debug\AddressBookConsole.csprojAssemblyReference.cache
+C:\Users\svetla\Desktop\AddressBook\AddressBookConsole\AddressBookConsole\obj\Debug\AddressBookConsole.csproj.CoreCompileInputs.cache
+C:\Users\svetla\Desktop\AddressBook\AddressBookConsole\AddressBookConsole\obj\Debug\AddressBookConsole.exe
+C:\Users\svetla\Desktop\AddressBook\AddressBookConsole\AddressBookConsole\obj\Debug\AddressBookConsole.pdb
